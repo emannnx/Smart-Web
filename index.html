@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Francine Tyler, CPA</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header.top-bar {
+      background: #1e607e;
+      color: white;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .contact {
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+      position: absolute;
+      right: 20px;
+      top: 15px;
+    }
+
+    nav.navbar {
+      background: #0f5b2f;
+    }
+
+    nav.navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      gap: 30px;
+    }
+
+    nav.navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav.navbar a:hover {
+      text-decoration: underline;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .intro {
+      display: flex;
+      justify-content: space-around;
+      gap: 40px;
+      padding: 40px 20px;
+      background: white;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1;
+      min-width: 300px;
+      padding: 20px;
+    }
+
+    .accounting h2 {
+      background: #2b5073;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .taxation h2 {
+      background: #186230;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    .services {
+      background: #fdfadd;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .services h2 {
+      color: #3a3a3a;
+      margin-bottom: 40px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .service-boxes {
+      display: flex;
+      justify-content: space-around;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .service {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .service:hover {
+      transform: translateY(-5px);
+    }
+
+    .service img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 15px;
+    }
+
+    .service h3 {
+      color: #1d6032;
+      margin-bottom: 10px;
+      font-size: 18px;
+    }
+
+    .service p {
+      font-size: 14px;
+      color: #555;
+    }
+
+    @media screen and (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .contact {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav.navbar {
+        display: none;
+        width: 100%;
+      }
+
+      nav.navbar.active {
+        display: block;
+      }
+
+      nav.navbar ul {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 20px;
+      }
+
+      nav.navbar ul li {
+        margin: 10px 0;
+      }
+
+      .intro {
+        flex-direction: column;
+      }
+
+      .service-boxes {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .service {
+        width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="top-bar">
+    <div class="container">
+      <div class="logo">Francine Tyler, CPA</div>
+      <div class="contact">
+        <p>📞 (831) 316-7590</p>
+        <p>📧 francinetylercpa@gmail.com</p>
+      </div>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    </div>
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+<section class="hero">
+  <img src="https://images.unsplash.com/photo-1607082349566-187342175e2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="CPA Banner" />
+</section>
+
+
+  <section class="intro">
+    <div class="column accounting">
+      <h2>ACCOUNTING</h2>
+      <p>
+        I am a California Board of Accountancy licensed public accountant. As a CPA, I stay current with the latest changes in the field by following related accounting and tax publications and attending webinars and seminars.
+      </p>
+    </div>
+    <div class="column taxation">
+      <h2>TAXATION</h2>
+      <p>
+        I provide personalized service for businesses, individuals, and nonprofits. I focus on the areas of taxation and accounting, with an emphasis on individual returns, small and women-owned businesses and owners of residential real estate.
+      </p>
+    </div>
+  </section>
+
+  <section class="services">
+  <h2>SERVICES</h2>
+  <div class="service-boxes">
+    <div class="service">
+      <img src="https://cdn-icons-png.flaticon.com/512/2830/2830280.png" alt="Tax Planning" />
+      <h3>TAX PLANNING</h3>
+      <p>I’ll help you plan for taxes for the upcoming year, or before your business is off the ground.</p>
+    </div>
+    <div class="service">
+      <img src="https://cdn-icons-png.flaticon.com/512/3465/3465150.png" alt="Bookkeeping" />
+      <h3>BOOKKEEPING</h3>
+      <p>I’ll teach your company how to accurately keep records, and can refer you to several great bookkeepers.</p>
+    </div>
+    <div class="service">
+      <img src="https://cdn-icons-png.flaticon.com/512/619/619034.png" alt="Rental Property" />
+      <h3>RENTAL PROPERTY</h3>
+      <p>Buying a rental property? I’ll help you understand cash flow, depreciation, and what you can expense on your tax return.</p>
+    </div>
+  </div>
+</section>
+
+
+  <script>
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

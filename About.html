@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About - Francine Tyler, CPA</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header.top-bar {
+      background: #1e607e;
+      color: white;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
+
+    .contact {
+      font-size: 14px;
+      text-align: right;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      color: white;
+      cursor: pointer;
+    }
+
+    nav.navbar {
+      background: #0f5b2f;
+    }
+
+    nav.navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      gap: 30px;
+    }
+
+    nav.navbar a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav.navbar a:hover,
+    nav.navbar a.active {
+      text-decoration: underline;
+      color: #ffeb3b;
+    }
+
+    .about-section {
+      max-width: 1000px;
+      margin: 40px auto;
+      background: white;
+      padding: 40px 20px;
+    }
+
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: flex-start;
+    }
+
+    .about-image img {
+      width: 250px;
+      height: auto;
+      border-radius: 4px;
+    }
+
+    .about-text {
+      flex: 1;
+    }
+
+    .about-text h2 {
+      margin-bottom: 10px;
+      font-size: 24px;
+      color: #2b5073;
+    }
+
+    .about-text h4 {
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    .about-text p {
+      margin-bottom: 15px;
+    }
+
+    .about-award {
+      margin-top: 15px;
+    }
+
+    .about-award img {
+      width: 130px;
+      height: auto;
+    }
+
+    .knowledge-box {
+      background: #fdfadd;
+      margin-top: 40px;
+      padding: 30px;
+      border-left: 5px solid #ccc;
+    }
+
+    .knowledge-box h3 {
+      color: #1d6032;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .knowledge-box ul {
+      margin-bottom: 20px;
+    }
+
+    .knowledge-box li {
+      margin-bottom: 10px;
+    }
+
+    .knowledge-box a {
+      color: #2b5073;
+      text-decoration: none;
+    }
+
+    .knowledge-box a:hover {
+      text-decoration: underline;
+    }
+
+    .knowledge-note {
+      font-size: 13px;
+      font-style: italic;
+      color: #444;
+      border-top: 1px solid #ccc;
+      padding-top: 10px;
+    }
+
+    footer {
+      background: #2d3d3a;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+      font-size: 14px;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 768px) {
+      .contact {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 20px;
+      }
+
+      nav.navbar {
+        display: none;
+        width: 100%;
+      }
+
+      nav.navbar.active {
+        display: block;
+      }
+
+      nav.navbar ul {
+        flex-direction: column;
+        gap: 15px;
+        padding: 10px 20px;
+        align-items: flex-start;
+      }
+
+      .about-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .about-text {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="container">
+      <div class="logo">Francine Tyler, CPA</div>
+      <div class="contact">
+        <p>📞 (831) 316-7590</p>
+        <p>📧 francinetylercpa@gmail.com</p>
+      </div>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+    </div>
+    <nav class="navbar" id="navbar">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a class="active" href="About.html">About</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="about-section">
+    <div class="about-content">
+      <div class="about-image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="Francine Tyler" />
+      </div>
+      <div class="about-text">
+        <h2>Francine Tyler</h2>
+        <h4>Certified Public Accountant</h4>
+        <p>I am dedicated to you and all your different accounting needs.</p>
+        <p>I have worked as an accountant since 2011, with the majority under CPAs specializing in taxation. Previously, I worked for UC Santa Cruz in the area of internal communications and media relations, and spent time as a business reporter.</p>
+        <p>I hold a bachelor’s degree from UCLA and a master’s degree from UC Berkeley. I studied accounting and tax at Cabrillo College in Aptos and completed Santa Clara University’s year-long Certificate in Advanced Accounting Proficiency (CAAP) program in 2014.</p>
+        <p>I received my CPA license in early 2015.</p>
+        <p>My husband, Mike Tyler, teaches at Saratoga High School. We have lived in Santa Cruz 25+ years, mostly on the West Side.</p>
+        <div class="about-award">
+            Best Accountants in Santa Cruz 2018
+        </div>
+      </div>
+    </div>
+
+    <div class="knowledge-box">
+      <h3>KNOWLEDGE BASE: Available Resources</h3>
+      <ul>
+        <li>Fees might be eating up your retirement savings. How to stop it.</li>
+        <li>10 Steps to Starting a Business</li>
+        <li>Put your tax refund to work</li>
+      </ul>
+      <p>The website at <a href="https://www.irs.gov" target="_blank">www.irs.gov</a> contains a wealth of information, for those willing to look for it.</p>
+      <p class="knowledge-note"><a href="https://www.irs.gov/forms-pubs" target="_blank">IRS Forms &amp; Pubs:</a> Note that “publications” describe specific tax documents and rules and “forms” are copies of the actual tax forms used when we communicate with the IRS...</p>
+    </div>
+  </section>
+
+  <footer>
+    © 2025, Francine Tyler. All Rights Reserved. &nbsp; | &nbsp; Website design by Brooktown Design.
+  </footer>
+
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const nav = document.getElementById('navbar');
+    toggle.addEventListener('click', () => {
+      nav.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
