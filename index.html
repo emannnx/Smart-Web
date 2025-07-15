@@ -36,6 +36,12 @@
     .logo {
       font-size: 22px;
       font-weight: bold;
+      opacity: 0;
+      animation: logoFadeIn 1.2s ease forwards;
+      animation-delay: 0.3s;
+    }
+    @keyframes logoFadeIn {
+      to { opacity: 1; }
     }
 
     .contact {
@@ -70,6 +76,21 @@
       text-decoration: none;
       font-weight: bold;
       transition: 0.3s;
+      position: relative;
+      transition: color 0.3s, text-decoration 0.3s;
+    }
+    nav.navbar a::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0; bottom: -2px;
+      height: 2px;
+      background: #ffeb3b;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      transform-origin: left;
+    }
+    nav.navbar a:hover::after {
+      transform: scaleX(1);
     }
 
     nav.navbar a:hover {
@@ -82,6 +103,15 @@
       background-color: #FFFFFF;
       object-fit: cover;
       display: block;
+      opacity: 0;
+      transform: scale(0.98);
+      animation: heroFadeIn 1.2s 0.5s cubic-bezier(.23,1.01,.32,1) forwards;
+    }
+    @keyframes heroFadeIn {
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
     }
 
     .intro {
@@ -142,6 +172,13 @@
       width: 300px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.1);
       transition: transform 0.3s ease;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s cubic-bezier(.23,1.01,.32,1), transform 0.8s cubic-bezier(.23,1.01,.32,1);
+    }
+    .service.visible {
+      opacity: 1;
+      transform: none;
     }
 
     .service:hover {
@@ -163,6 +200,45 @@
     .service p {
       font-size: 14px;
       color: #555;
+    }
+
+    button, .btn {
+      padding: 12px 28px;
+      background: #0f5b2f;
+      color: white;
+      border: none;
+      font-weight: bold;
+      border-radius: 6px;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(15,91,47,0.08);
+      transition: background 0.3s, transform 0.18s cubic-bezier(.23,1.01,.32,1), box-shadow 0.3s;
+      outline: none;
+      position: relative;
+      overflow: hidden;
+    }
+    button:hover, .btn:hover {
+      background: #186230;
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 6px 18px rgba(15,91,47,0.13);
+    }
+    button:active, .btn:active {
+      background: #0f5b2f;
+      transform: scale(0.98);
+    }
+    input, textarea {
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    input:focus, textarea:focus {
+      border-color: #2b5073;
+      box-shadow: 0 0 0 2px #2b507344;
+      outline: none;
+    }
+    a, .link {
+      transition: color 0.3s, text-decoration 0.3s;
+    }
+    a:hover, .link:hover {
+      color: #186230;
+      text-decoration: underline;
     }
 
     @media screen and (max-width: 768px) {
@@ -211,6 +287,15 @@
         width: 90%;
       }
     }
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s cubic-bezier(.23,1.01,.32,1);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
   </style>
 </head>
 <body>
@@ -256,17 +341,17 @@
   <section class="services">
   <h2>SERVICES</h2>
   <div class="service-boxes">
-    <div class="service">
+    <div class="service fade-in">
       <img src="https://cdn-icons-png.flaticon.com/512/2830/2830280.png" alt="Tax Planning" />
       <h3>TAX PLANNING</h3>
       <p>I’ll help you plan for taxes for the upcoming year, or before your business is off the ground.</p>
     </div>
-    <div class="service">
+    <div class="service fade-in">
       <img src="https://cdn-icons-png.flaticon.com/512/3465/3465150.png" alt="Bookkeeping" />
       <h3>BOOKKEEPING</h3>
       <p>I’ll teach your company how to accurately keep records, and can refer you to several great bookkeepers.</p>
     </div>
-    <div class="service">
+    <div class="service fade-in">
       <img src="https://cdn-icons-png.flaticon.com/512/619/619034.png" alt="Rental Property" />
       <h3>RENTAL PROPERTY</h3>
       <p>Buying a rental property? I’ll help you understand cash flow, depreciation, and what you can expense on your tax return.</p>
@@ -281,6 +366,23 @@
 
     menuToggle.addEventListener('click', () => {
       navbar.classList.toggle('active');
+    });
+
+    // Animation for service boxes
+    function onVisible(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }
+    const fadeEls = document.querySelectorAll('.fade-in, .service');
+    const observer = new IntersectionObserver(onVisible, { threshold: 0.2 });
+    fadeEls.forEach(el => observer.observe(el));
+    // Hero image fade-in
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.hero img').style.opacity = 1;
     });
   </script>
 </body>
